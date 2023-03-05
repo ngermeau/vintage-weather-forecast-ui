@@ -1,6 +1,7 @@
 # Todo
 
-[ ] manage header if no data is found 
-[ ] make link for cities work 
-[ ] fix responsive
-[ ] underline next couple of hours
+[ ] manage header if no data is found  
+[ ] add hours  
+[ ] make link for cities work  
+[ ] fix responsive  
+[ ] fix raining data problem
