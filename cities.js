@@ -1,17 +1,27 @@
 export default [
   {
-    name: "Bruxelles",
+    name: "bruxelles",
     lat: 50.29,
-    long: 5.82
+    long: 5.82,
   },
   {
-    name: "Buenos Aires",
-    lat: 11.47,
-    long: -85.82
+    name: "london",
+    lat: 51.51,
+    long: -0.13,
   },
   {
-    name: "Torres del Paine",
-    lat: -50.98,
-    long: -72.50
+    name: "rome",
+    lat: -41.89,
+    long: -12.51,
+  },
+  {
+    name: "moscow",
+    lat: -55.75,
+    long: -37.62,
+  },
+  {
+    name: "kinshasa",
+    lat: -4.33,
+    long: 15.31,
   },
 ]

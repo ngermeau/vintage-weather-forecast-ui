@@ -6,19 +6,16 @@ import SearchCityBar from "./SearchCityBar"
 import citiesList from "../cities.js"
 
 let SearchableWeatherTable = (props) => {
-  const [city, setCity] = useState(citiesList[0])
+  const [cityName, setCityName] = useState("bruxelles")
   const [weatherData, setWeatherData] = useState([])
-  console.log("rendering")
   useEffect(() => {
     fetchWeatherData()
-  }, [city])
+  }, [cityName])
 
-  const changeCity = (e) => {
-    console.log(e.target.value)
-    setCity(citiesList[e.target.value])
-  }
+  let changeCity = (cityName) => setCityName(cityName)
 
   const fetchWeatherData = async () => {
+    let city = citiesList.find((elem) => elem.name === cityName)
     let data = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.long}&hourly=temperature_2m,precipitation`
     )
@@ -36,21 +33,27 @@ let SearchableWeatherTable = (props) => {
 
   return (
     <div className="p-0.5 border-2">
-      <div className="text-xxs font-modern p-16 border-8 flex gap-6 flex-col">
-        <SearchCityBar citiesList={citiesList} changeCity={changeCity} />
-        <div className="text-center">
-          {/* {<WeatherTableHeader hours={weatherData[0][1].map((data) => data.hour.slice(11))} />} */}
-          <div className="flex flex-col gap-2">
-            {weatherData.map((dayData) => (
-              <WeatherDay
-                day={dayData[0]}
-                key={dayData[0]}
-                dataByHours={dayData[1]}
+      {weatherData.length > 0 && (
+        <div className="text-xxs font-modern p-16 border-8 flex gap-6 flex-col">
+          <SearchCityBar citiesList={citiesList} changeCity={changeCity} />
+          <div className="text-center">
+            {
+              <WeatherTableHeader
+                hours={weatherData[0][1].map((data) => data.hour.slice(11))}
               />
-            ))}
+            }
+            <div className="flex flex-col gap-2">
+              {weatherData.map((dayData) => (
+                <WeatherDay
+                  day={dayData[0]}
+                  key={dayData[0]}
+                  dataByHours={dayData[1]}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
