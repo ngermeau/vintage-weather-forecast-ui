@@ -21,16 +21,17 @@ const styleTemperature = (temp) => {
 const WeatherHour = (hourData) => {
   let className = styleTemperature(hourData.temp)
   let rainingItem
+  console.log(hourData)
   if (hourData.prec > 0) {
     rainingItem = (
       <div className="w-5 h-5 absolute rounded-full border-1 bg-rain flex justify-center items-center bottom-[-7px] right-[-7px] text-[0.6rem] text-background border-2 border-background">
-        12
+       {hourData.prec}
       </div>
     )
   }
   return (
     <div className={className}>
-      {hourData.temp}
+      {hourData.temp}°
       {rainingItem}
     </div>
   )
