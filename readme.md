@@ -3,7 +3,7 @@
 Gives you the weather temperature and raining forecast for the next coming week. 
 
 <p align="center">
-    <img src="screenshot.png" alt="Vintage weather forecast UI" height="372">
+    <img src="screenshot.png" alt="Vintage weather forecast UI">
 </p>
 
 ## Table of contents
