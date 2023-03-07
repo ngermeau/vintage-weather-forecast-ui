@@ -32,9 +32,9 @@ let SearchableWeatherTable = (props) => {
   }
 
   return (
-    <div className="p-0.5 border-2">
+    <div className="p-3">
       {weatherData.length > 0 && (
-        <div className="text-xxs font-modern p-16 border-8 flex gap-6 flex-col">
+        <div className="text-xxs font-modern flex flex-col">
           <SearchCityBar citiesList={citiesList} changeCity={changeCity} />
           <div className="text-center">
             {
